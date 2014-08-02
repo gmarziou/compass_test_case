@@ -1,5 +1,95 @@
+Sprite creation fails due to some mismtach in imùage filename.
+My environment is the following:
 
-
+ * ubunut 14.04
  * ruby 1.9.3
  * sass 3.3.14
  * compass 0.12.7
+
+I have set up a git respoitory that exhibits the problem.
+I'm creating sprites from flags directory which contains a hundred of country flags as png images using 3 letters country codes all upper cased. 
+This works well until it reaches TAN.png  where it fails saying that teh sprite has no parent, I looked at the name of the sprite it is 'tan' while it should be 'TAN'.
+
+
+$ compass compile --trace
+unchanged sass/print.scss
+unchanged images/flags-s3364e72450.png
+NoMethodError on line ["100"] of /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/compass-0.12.7/lib/compass/sass_extensions/functions/sprites.rb: undefined method `parent' for nil:NilClass
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/script/funcall.rb:112:in `_perform'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/script/node.rb:40:in `perform'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:204:in `visit_if'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `visit'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:100:in `visit'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:161:in `block (3 levels) in visit_each'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:161:in `map'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:161:in `block (2 levels) in visit_each'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:159:in `map'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:159:in `block in visit_each'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:158:in `visit_each'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `visit'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:100:in `visit'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:268:in `block (3 levels) in visit_mixin'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:268:in `map'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:268:in `block (2 levels) in visit_mixin'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:268:in `block in visit_mixin'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:70:in `perform_arguments'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:263:in `visit_mixin'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `visit'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:100:in `visit'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:268:in `block (3 levels) in visit_mixin'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:268:in `map'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:268:in `block (2 levels) in visit_mixin'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:268:in `block in visit_mixin'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:70:in `perform_arguments'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:263:in `visit_mixin'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `visit'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:100:in `visit'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:268:in `block (3 levels) in visit_mixin'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:268:in `map'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:268:in `block (2 levels) in visit_mixin'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:268:in `block in visit_mixin'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:70:in `perform_arguments'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:263:in `visit_mixin'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `visit'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:100:in `visit'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:53:in `map'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:128:in `visit_root'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/base.rb:37:in `visit'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:100:in `visit'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/visitors/perform.rb:7:in `visit'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/tree/root_node.rb:20:in `render'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/engine.rb:315:in `_render'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/sass-3.2.19/lib/sass/engine.rb:262:in `render'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/compass-0.12.7/lib/compass/compiler.rb:139:in `block (2 levels) in compile'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/compass-0.12.7/lib/compass/compiler.rb:126:in `timed'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/compass-0.12.7/lib/compass/compiler.rb:138:in `block in compile'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/compass-0.12.7/lib/compass/logger.rb:45:in `red'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/compass-0.12.7/lib/compass/compiler.rb:137:in `compile'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/compass-0.12.7/lib/compass/compiler.rb:118:in `compile_if_required'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/compass-0.12.7/lib/compass/compiler.rb:103:in `block (2 levels) in run'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/compass-0.12.7/lib/compass/compiler.rb:101:in `each'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/compass-0.12.7/lib/compass/compiler.rb:101:in `block in run'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/compass-0.12.7/lib/compass/compiler.rb:126:in `timed'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/compass-0.12.7/lib/compass/compiler.rb:100:in `run'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/compass-0.12.7/lib/compass/commands/update_project.rb:45:in `perform'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/compass-0.12.7/lib/compass/commands/base.rb:18:in `execute'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/compass-0.12.7/lib/compass/commands/project_base.rb:19:in `execute'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/compass-0.12.7/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/compass-0.12.7/lib/compass/exec/sub_command_ui.rb:15:in `run!'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/compass-0.12.7/bin/compass:30:in `block in <top (required)>'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/compass-0.12.7/bin/compass:44:in `call'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/compass-0.12.7/bin/compass:44:in `<top (required)>'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/bin/compass:19:in `load'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/bin/compass:19:in `<main>'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/bin/ruby_executable_hooks:15:in `eval'
+  /home/gael/.rvm/gems/ruby-1.9.3-p327/bin/ruby_executable_hooks:15:in `<main>'
