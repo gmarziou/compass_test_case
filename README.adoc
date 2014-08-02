@@ -11,6 +11,7 @@ I'm creating sprites from flags directory which contains a hundred of country fl
 This works well until it reaches TAN.png  where it fails saying that teh sprite has no parent, I looked at the name of the sprite it is 'tan' while it should be 'TAN'.
 
 
+----
 $ compass compile --trace
 unchanged sass/print.scss
 unchanged images/flags-s3364e72450.png
@@ -93,3 +94,4 @@ NoMethodError on line ["100"] of /home/gael/.rvm/gems/ruby-1.9.3-p327/gems/compa
   /home/gael/.rvm/gems/ruby-1.9.3-p327/bin/compass:19:in `<main>'
   /home/gael/.rvm/gems/ruby-1.9.3-p327/bin/ruby_executable_hooks:15:in `eval'
   /home/gael/.rvm/gems/ruby-1.9.3-p327/bin/ruby_executable_hooks:15:in `<main>'
+----
