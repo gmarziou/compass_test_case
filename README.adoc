@@ -1,4 +1,4 @@
-Sprite creation fails due to some mismtach in imùage filename.
+Sprite creation fails due to some mismatch in image filename.
 My environment is the following:
 
  * ubunut 14.04
@@ -8,7 +8,7 @@ My environment is the following:
 
 I have set up a git respoitory that exhibits the problem.
 I'm creating sprites from flags directory which contains a hundred of country flags as png images using 3 letters country codes all upper cased. 
-This works well until it reaches TAN.png  where it fails saying that teh sprite has no parent, I looked at the name of the sprite it is 'tan' while it should be 'TAN'.
+This works well until it reaches TAN.png  where it fails saying that the sprite has no parent, I looked at the name of the sprite it is 'tan' while it should be 'TAN'.
 
 
 ----
